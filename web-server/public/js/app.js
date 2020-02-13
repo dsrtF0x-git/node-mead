@@ -7,7 +7,7 @@ weahterForm.addEventListener("submit", event => {
   messageOne.textContent = 'Waiting for data';
   messageTwo.textContent = '';
   event.preventDefault();
-  fetch(`http://localhost:4444/weather?address=${search.value}`)
+  fetch(`/weather?address=${search.value}`)
   .then(res => res.json())
   .then(data => {
     if (data.error) {
