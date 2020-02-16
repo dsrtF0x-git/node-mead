@@ -44,17 +44,29 @@ app.get("/weather", (req, res) => {
     });
   }
 
-  geoCode(req.query.address, (error, { latitude, longitude, location }={}) => {
+  geoCode(req.query.address, (error, {
+    latitude,
+    longitude,
+    location
+  } = {}) => {
     if (error) {
-      return res.send({ error });
+      return res.send({
+        error
+      });
     }
 
     forecast(
       latitude,
       longitude,
-      (error, { temperature, summary, precipProbability }) => {
+      (error, {
+        temperature,
+        summary,
+        precipProbability
+      }) => {
         if (error) {
-          return res.send({ error });
+          return res.send({
+            error
+          });
         }
         return res.send({
           forecast: temperature,
